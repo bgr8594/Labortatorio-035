@@ -23,7 +23,8 @@ const routes: Routes = [
         loadChildren: () => import('./alumnos/detalle-alumno/detalle-alumno.module').then( m => m.DetalleAlumnoPageModule)
       }
     ]
-  },  {
+  },
+  {
     path: 'recetas',
     loadChildren: () => import('./recetas/recetas.module').then( m => m.RecetasPageModule)
   },
@@ -31,6 +32,11 @@ const routes: Routes = [
     path: 'detalle-receta',
     loadChildren: () => import('./detalle-receta/detalle-receta.module').then( m => m.DetalleRecetaPageModule)
   },
+  {
+    path: 'tabs',
+    loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
+  },
+  
 
 ];
 
