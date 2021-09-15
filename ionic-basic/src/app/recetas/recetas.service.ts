@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Receta } from './receta.model';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -37,21 +36,21 @@ export class RecetasService {
       image: 'https://d1uz88p17r663j.cloudfront.net/resized/08d45a55fe49e611abde012a9b72d8bb_POLLO_A_LA_MEXICANA_150_1200_600.jpg',
       ingredientes: [
         '1/2 Cebolla asada'
-        ,'2 Dientes de Ajo asados'
-        ,'4 Jitomates asados'
-        ,'1/2 Taza de Agua'
-        ,'2 Cubos de Concentrado de Tomate con Pollo CONSOMATE'
-        ,'2 Cucharadas de Aceite de maíz'
-        ,'1/2 Cebolla fileteada'
-        ,'5 Muslos o piernas de pollo cocidos'
-        ,'3 Jitomates cortados en cubos pequeños'
-        ,'2 Chiles jalapeño cortados en tiras'
-        ,'2 Ramitas de Cilantro fresco desinfectadas y picadas finamente'
+,'2 Dientes de Ajo asados'
+,'4 Jitomates asados'
+,'1/2 Taza de Agua'
+,'2 Cubos de Concentrado de Tomate con Pollo CONSOMATE'
+,'2 Cucharadas de Aceite de maíz'
+,'1/2 Cebolla fileteada'
+,'5 Muslos o piernas de pollo cocidos'
+,'3 Jitomates cortados en cubos pequeños'
+,'2 Chiles jalapeño cortados en tiras'
+,'2 Ramitas de Cilantro fresco desinfectadas y picadas finamente'
       ]
     },
     {
       id: 4, 
-      nombre: "Paletas de fresa con chamoy", 
+      nombre: 'Paletas de fresa con chamoy', 
       image: 'https://images.aws.nestle.recipes/resized/f1b3167c3cff6274361a3f7a87974be2_paletas_de_fresa_con_chamoy_1200_600.jpg',
       ingredientes: [
         '2 Tazas de Fresas congeladas'
@@ -68,7 +67,6 @@ export class RecetasService {
       ]
     }
   ];
-
   constructor() { }
 
   getReceta(idReceta: number){
