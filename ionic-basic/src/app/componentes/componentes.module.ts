@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [FloatMenuComponent],
-  exports: [FloatMenuComponent],
+  exports:[FloatMenuComponent],
   imports: [
     CommonModule,
     IonicModule

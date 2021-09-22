@@ -1,10 +1,11 @@
 <ion-header>
     <ion-toolbar>
-        <ion-title>alumnos</ion-title>
+       
     </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content> 
+    <ion-title>Alumnos</ion-title>
     <ion-list>
         <ion-item *ngFor="let alumno of alumnos" [routerLink]="['/alumnos', alumno.id]">
             {{alumno.nombre}}
