@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Receta } from '../recetas/receta.model';
+import { Receta } from '../recetas/recetas.models';
 import { RecetasService } from '../recetas/recetas.service';
 
 @Component({
@@ -10,16 +10,17 @@ import { RecetasService } from '../recetas/recetas.service';
 })
 export class DetalleRecetaPage implements OnInit {
   receta: Receta;
-  idReceta: number;
-  constructor( 
+  idReceta : number;
+
+  constructor(
     private recetaService: RecetasService, 
     private activatedRoute: ActivatedRoute,
     private router: Router
     ) { }
 
   ngOnInit() {
-    this.activatedRoute.paramMap.subscribe(paranMap=>{
-      this.idReceta = Number.parseInt(paranMap.get('idReceta'));
+    this.activatedRoute.paramMap.subscribe(paramMap=>{
+      this.idReceta = Number.parseInt(paramMap.get('idReceta'));
       this.receta = this.recetaService.getReceta(this.idReceta);
     });
   }

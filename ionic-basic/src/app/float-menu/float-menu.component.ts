@@ -17,13 +17,11 @@ export class FloatMenuComponent implements OnInit {
     {nombre: 'Tabs',enlace:'/tabs',
     icono:'folder-outline'}
     ];
-    
   constructor(private router: Router) { }
 
   ngOnInit() {}
-
+  
   navegar(link: string){
     this.router.navigate([link]);
   }
-
 }
