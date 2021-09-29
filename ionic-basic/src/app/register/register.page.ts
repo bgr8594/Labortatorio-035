@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../shared/user.class';
-import { AuthService } from '../service/auth.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../service/auth.service';
+import { User } from '../shared/user.class';
 
 @Component({
   selector: 'app-register',
@@ -18,8 +18,9 @@ export class RegisterPage implements OnInit {
   async onRegister(){
     const user = await this.autSvc.onRegister(this.user);
     if(user!=undefined && user.code == undefined){
-      console.log("Succesfully create user!");
+      console.log("Successfully created user!");
       this.router.navigate(['/']);
     }
   }
+
 }

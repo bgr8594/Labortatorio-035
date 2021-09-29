@@ -8,7 +8,7 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: '', 
+    path: '',
     redirectTo: 'recetas',
     pathMatch: 'full'
   },
@@ -50,7 +50,7 @@ const routes: Routes = [
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
   },
 
-  
+
 
 ];
 
