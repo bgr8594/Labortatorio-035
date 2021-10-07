@@ -1,7 +1,8 @@
 export class Lugar {
+
   nombre: string;
   ubicacion?:{latitud:string, longitud:string}
-
+    id?: string;
      constructor(){
          this.nombre=''
      }
