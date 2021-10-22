@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class LugaresService {
 
-  private basePath: string ="http://localhost:8080/post";
+  private basePath: string ="http://localhost:8081/post";
 
   constructor(private dbFirestore: AngularFirestore,
     private http: HttpClient) { 
