@@ -3,7 +3,6 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { Subscription } from 'rxjs';
 import { LugaresService } from '../services/lugares.service';
 import { Lugar } from '../shared/lugar';
-import { ReactiveFormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-destinos',
