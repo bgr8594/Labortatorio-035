@@ -4,12 +4,12 @@ import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'home', canActivate: [AuthGuard],
+    path: 'home',canActivate: [AuthGuard],
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
     path: '',
-    redirectTo: 'recetas',
+    redirectTo: 'alumnos',
     pathMatch: 'full'
   },
   {
@@ -50,12 +50,12 @@ const routes: Routes = [
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
   },
   {
-    path: 'destinos', canActivate: [AuthGuard],
+    path: 'destinos',  canActivate: [AuthGuard],
     loadChildren: () => import('./destinos/destinos.module').then( m => m.DestinosPageModule)
-  },
+  }
 
 
-
+  
 
 ];
 

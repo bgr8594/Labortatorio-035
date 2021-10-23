@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Receta } from './receta.model';
+import { Receta } from './recetas.models';
 import { RecetasService } from './recetas.service';
 
 @Component({
@@ -9,11 +9,11 @@ import { RecetasService } from './recetas.service';
 })
 export class RecetasPage implements OnInit {
 
-  recetas: Receta[];
-  constructor(private recetaService: RecetasService) { }
+  receta: Receta[];
+  constructor(private recetasService: RecetasService) { }
 
   ngOnInit() {
-    this.recetas = this.recetaService.getRecetas();
+    this.receta = this.recetasService.getRecetas();
   }
 
 }
