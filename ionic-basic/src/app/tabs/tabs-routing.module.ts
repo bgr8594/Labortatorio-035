@@ -13,18 +13,18 @@ const routes: Routes = [
         loadChildren: () => import('../alumnos/alumnos.module').then(m=>m.AlumnosPageModule)
       },
       {
-        path:'recetas',
+        path: 'recetas',
         loadChildren: () => import('../recetas/recetas.module').then(m=>m.RecetasPageModule)
       },
       {
-        path: ' ',
+        path:'',
         redirectTo: '/tabs/alumnos',
         pathMatch: 'full'
       }
     ]
   },
   {
-    path: ' ',
+    path: '',
     redirectTo: '/tabs/alumnos',
     pathMatch: 'full'
   }
