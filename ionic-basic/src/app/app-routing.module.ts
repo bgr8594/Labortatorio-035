@@ -51,7 +51,11 @@ const routes: Routes = [
   {
     path: 'destinos', canActivate: [AuthGuard],
     loadChildren: () => import('./destinos/destinos.module').then( m => m.DestinosPageModule)
+  },  {
+    path: 'galeria',
+    loadChildren: () => import('./galeria/galeria.module').then( m => m.GaleriaPageModule)
   },
+
 
 
 
