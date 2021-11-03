@@ -7,18 +7,19 @@ import { IonicModule, IonicRouteStrategy, NavParams } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireAuthModule } from 'angularfire2/auth';
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireAuthModule} from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { ComponentesModule } from './componentes/componentes.module';
 import { environment } from 'src/environments/environment';
+import { GooglemapsModule } from './googlemaps/googlemaps.module';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [ComponentesModule ,BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,
+  imports: [ComponentesModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule, AngularFirestoreModule],
+    AngularFireAuthModule, AngularFirestoreModule, GooglemapsModule ],
   providers: [NavParams, HttpClientModule, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

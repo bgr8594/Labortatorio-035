@@ -5,7 +5,7 @@ export class Lugar {
     longitud:number;
     
     ubicacion?:{latitud:string, longitud:string}
-
+  
        constructor(){
            this.nombre=''
        }

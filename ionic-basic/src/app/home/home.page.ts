@@ -11,10 +11,12 @@ import { AuthService } from '../service/auth.service';
 export class HomePage {
 
   constructor(private authSvc: AuthService, private afAuth: AngularFireAuth,
-    private router: Router) {}
+    private router: Router){}
+
   onLogout(){
     this.afAuth.auth.signOut();
-    console.log("logout!");
+    console.log("Logout!");
     this.router.navigateByUrl('/login');
   }
+
 }

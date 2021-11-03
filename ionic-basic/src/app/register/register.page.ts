@@ -15,10 +15,10 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
   }
 
- async onRegister(){
+  async onRegister(){
     const user = await this.autSvc.onRegister(this.user);
-    if(user!= undefined && user.code == undefined){
-      console.log("successfully created user!");
+    if(user!=undefined && user.code == undefined){
+      console.log("Successfully created user!");
       this.router.navigate(['/']);
     }
   }

@@ -23,11 +23,13 @@ export class FloatMenuComponent implements OnInit {
     {nombre: 'Salir',enlace:'/home',
     icono:'log-out'}
     ];
+    
   constructor(private router: Router) { }
 
   ngOnInit() {}
-  
+
   navegar(link: string){
     this.router.navigate([link]);
   }
+
 }

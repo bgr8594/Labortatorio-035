@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Receta } from './recetas.models';
+import { Receta } from './receta.model';
 
 @Injectable({
   providedIn: 'root'
@@ -63,24 +63,21 @@ export class RecetasService {
         ,'4 Cucharadas de Chile con limón en polvo'
         ,'1 Cucharada de Jugo MAGGI'
         ,'1/4 Taza de Chamoy líquido'
- 
+
       ]
     }
   ];
+  constructor() { }
 
-  constructor() {
-
-   }
-
-   getReceta(idReceta: number){
+  getReceta(idReceta: number){
     return {...
-      this.recetas.find((receta : Receta)=>{
+      this.recetas.find((receta: Receta)=>{
         return receta.id === idReceta
       })
     };
-   }
+  }
 
-   getRecetas(){
-     return [...this.recetas];
-   }
+  getRecetas(){
+    return [...this.recetas];
+  }
 }
