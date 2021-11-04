@@ -48,5 +48,4 @@ export class RegisterPage implements OnInit {
     const { role, data } = await loading.onDidDismiss();
     console.log('Loading dismissed with role:', role);
   }
-
 }
