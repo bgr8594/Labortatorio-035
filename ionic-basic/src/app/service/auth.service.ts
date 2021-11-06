@@ -21,15 +21,10 @@ export class AuthService {
       }
     }
 
-    async onRegister(user:User){
-      try{
-        return await this.afAuth.auth.createUserWithEmailAndPassword(user.email,user.password);
-      }
-      catch(error){
-        console.log('error en register user',error);
-        return error;
+    onRegister( user: User){
+      return this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
       }
 
     }
   
-}
+
