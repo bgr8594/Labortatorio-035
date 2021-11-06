@@ -48,5 +48,4 @@ async presentLoadingWithOptions() {
   const { role, data } = await loading.onDidDismiss();
   console.log('Loading dismissed with role:', role);
   }
-
 }
