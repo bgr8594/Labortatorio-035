@@ -12,13 +12,14 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import { environment } from 'src/environments/environment';
+import { GooglemapsModule } from './googlemaps/googlemaps.module';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [ComponentesModule ,BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,
   AngularFireModule.initializeApp(environment.firebaseConfig),
-  AngularFireAuthModule, AngularFirestoreModule],
+  AngularFireAuthModule, AngularFirestoreModule, GooglemapsModule ],
   providers: [NavParams, HttpClientModule, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
