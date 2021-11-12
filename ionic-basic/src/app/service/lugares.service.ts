@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class LugaresService {
 
-  private basePath: string ="http://localhost:8081/post";
+  private basePath: string ="http://localhost:8080/post";
 
   constructor(private dbFirestore: AngularFirestore,
     private http: HttpClient) { 
@@ -19,7 +19,8 @@ export class LugaresService {
   altaLugar(lugar: Lugar){
     const lugarTemp: any ={
       nombre:lugar.nombre,
-      ubicacion: {longitud:'', latitud:''}
+      latitud: lugar.latitud,
+      longitud: lugar.longitud
     };
     return this.dbFirestore.collection('lugar').add(lugarTemp);
   }
@@ -55,20 +56,29 @@ export class LugaresService {
     return this.dbFirestore.collection('lugar').doc(id).delete();
   }
 
+
   getLugaresApi() :Observable<Lugar[]>{
+
     return this.http.get<any>(`${this.basePath}/list`,{});
+
   }
 
   altaLugarApi(lugar: Lugar){
+
     return this.http.post(`${this.basePath}/add`, lugar);
+
   }
 
 
   borrarLugarApi(id: string){
+
     return this.http.delete(`${this.basePath}/${id}/delete`, {});
+
   }
 
   editarLugarApi(id: string, lugar: Lugar){
+
     return this.http.put(`${this.basePath}/${id}/update`,lugar,{});
+
   }  
 }

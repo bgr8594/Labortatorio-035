@@ -29,7 +29,19 @@ export class DestinosPage implements OnInit {
   ngOnInit() {
     this.getPosition();
     this.buildForm();
-    this.getLugaresApi();
+
+    this.lugarService.getLugaresChanges().subscribe(resp => {
+      this.destinos = resp.map((e: any) => {
+        return {
+          id: e.payload.doc.id,
+          nombre: e.payload.doc.data().nombre,
+          latitud: e.payload.doc.data().latitud,
+          longitud:  e.payload.doc.data().longitud
+        }
+      });
+    }, error => {
+      console.error(error);
+    });
   }
 
   getLugaresApi(){
@@ -45,29 +57,25 @@ export class DestinosPage implements OnInit {
   }
 
   submitForm(){
+    this.lugar.latitud = this.latitud;
+    this.lugar.longitud = this.longitud;
+    this.lugar.nombre = this.ionicForm.get('nombre').value;
     if(this.ionicForm.valid){
-      this.lugar.nombre = this.ionicForm.get('nombre').value;
-      this.lugar.latitud = this.latitud;
-      this.lugar.longitud = this.longitud; 
       if(!this.editando){
-        this.lugarService.altaLugarApi(this.lugar).subscribe((reponse: any)=>{
+        this.lugarService.altaLugar(this.lugar).then((e:any)=>{
           this.ionicForm.reset();
-          this.getLugaresApi();
-        }, error=>{
-          console.log(error);
-        });
-        
+        }).catch(e=>{
+          console.error(e);
+        });        
       } else{
-
-        this.lugarService.editarLugarApi(this.lugar.id, this.lugar).subscribe((response: any)=>{
+        this.lugarService.updateLugares(this.lugar.id, this.lugar).then(e=>{
           this.editando= false;
           this.estado = "Alta destino";
           this.lugar = new Lugar();
           this.ionicForm.reset();
-          this.getLugaresApi();
-        }, error=>{
-          console.error(error);
-        })
+        }).catch(e=>{
+          console.error(e);
+        });
       }
     }
   }
@@ -97,16 +105,10 @@ export class DestinosPage implements OnInit {
   }
 
   eliminarLugar(id: any) {
-    this.lugarService.borrarLugarApi(id).subscribe((response: any)=>{
-      if(response){
-        this.estado = "Alta destino";
-        this.editando = false;
-        this.ionicForm.reset();
-        this.getLugaresApi();
-      }
-    }, error=>{
-      console.error(error);
-    });
+    this.estado = "Alta destino";
+    this.editando = false;
+    this.ionicForm.reset();
+    this.lugarService.deleteLugar(id);
   }
 
   cancelarEdicion(){
