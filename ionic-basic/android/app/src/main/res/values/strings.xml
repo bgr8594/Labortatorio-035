@@ -2,6 +2,6 @@
 <resources>
     <string name="app_name">ionic-basic-1870905</string>
     <string name="title_activity_main">ionic-basic-1870905</string>
-    <string name="package_name">com.ionics.starter</string>
-    <string name="custom_url_scheme">com.ionics.starter</string>
+    <string name="package_name">com.democapacitor.fcfm</string>
+    <string name="custom_url_scheme">com.democapacitor.fcfm</string>
 </resources>
