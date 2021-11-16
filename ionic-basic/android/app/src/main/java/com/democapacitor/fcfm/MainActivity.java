@@ -1,4 +1,4 @@
-package como.ionics.starter;
+package com.democapacitor.fcfm;
 
 import com.getcapacitor.BridgeActivity;
 
