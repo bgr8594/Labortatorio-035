@@ -26,7 +26,7 @@ export class DestinosPage implements OnInit {
     this.getPosition();
     this.buildForm();
 
-    /*this.subscripcion = this.lugarService.getLugaresChanges().subscribe(resp => {
+    this.subscripcion = this.lugarService.getLugaresChanges().subscribe(resp => {
       this.destinos = resp.map((e: any) => {
         return {
           id: e.payload.doc.id,
@@ -36,8 +36,9 @@ export class DestinosPage implements OnInit {
         }
       });
     }, error => {
-      console.error(error);*/
-      this.getLugaresApi();
+      console.error(error);
+      //this.getLugaresApi();
+    });
     }
 
   getLugaresApi(){
@@ -62,26 +63,18 @@ export class DestinosPage implements OnInit {
   }
 
   submitForm(){
+    
+    this.lugar.latitud = this.latitud;
+    this.lugar.longitud = this.longitud;
+    this.lugar.nombre = this.ionicForm.get('nombre').value;
     if(this.ionicForm.valid){
-      this.lugar.nombre = this.ionicForm.get('nombre').value;
-      this.lugar.latitud = this.latitud;
-      this.lugar.longitud = this.longitud; 
       if(!this.editando){
-        /*  alta de lugar atraves de firestore 
         this.lugarService.altaLugar(this.lugar).then((e:any)=>{
           this.ionicForm.reset();
         }).catch(e=>{
           console.error(e);
-        });*/
-        // alta de lugar desde api
-        this.lugarService.altaLugarApi(this.lugar).subscribe((reponse: any)=>{
-          this.ionicForm.reset();
-          this.getLugaresApi();
-        }, error=>{
-          console.log(error);
         });        
       } else{
-        /*  consumir editar a traves de firestore
         this.lugarService.updateLugares(this.lugar.id, this.lugar).then(e=>{
           this.editando= false;
           this.estado = "Alta destino";
@@ -89,17 +82,7 @@ export class DestinosPage implements OnInit {
           this.ionicForm.reset();
         }).catch(e=>{
           console.error(e);
-        });*/
-        // editar desde el api
-        this.lugarService.editarLugarApi(this.lugar.id, this.lugar).subscribe((response: any)=>{
-          this.editando= false;
-          this.estado = "Alta destino";
-          this.lugar = new Lugar();
-          this.ionicForm.reset();
-          this.getLugaresApi();
-        }, error=>{
-          console.error(error);
-        })
+        });
       }
     }
   }
@@ -129,21 +112,15 @@ export class DestinosPage implements OnInit {
   }
 
   eliminarLugar(id: any) {
-    /* eliminar lugar a traves de firestore
+    // eliminar lugar a traves de firestore
     this.lugarService.deleteLugar(id);
-    */
+    
 
     // eliminar lugar desde api
-    this.lugarService.borrarLugarApi(id).subscribe((response: any)=>{
-      if(response){
-        this.estado = "Alta destino";
-        this.editando = false;
-        this.ionicForm.reset();
-        this.getLugaresApi();
-      }
-    }, error=>{
-      console.error(error);
-    });
+    this.estado = "Alta destino";
+    this.editando = false;
+    this.ionicForm.reset();
+        
   }
 
   cancelarEdicion(){
