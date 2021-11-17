@@ -11,10 +11,10 @@ export class ModalErrorComponent implements OnInit {
   constructor(private navParams: NavParams, private modalCtrl: ModalController) { }
 
   ngOnInit() {}
-  
+
   close(){
     this.modalCtrl.dismiss({
-      'dismissed' : true
+      'dismissed': true
     });
   }
   

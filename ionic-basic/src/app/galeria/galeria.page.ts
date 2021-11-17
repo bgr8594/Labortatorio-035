@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UserPhoto } from '../shared/user-photo.model';
 import { PhotoService } from '../service/photo.service';
 import { ActionSheetController } from '@ionic/angular';
-
 @Component({
   selector: 'app-galeria',
   templateUrl: './galeria.page.html',

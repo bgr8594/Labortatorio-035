@@ -1,4 +1,4 @@
-export interface UserPhoto {
-    filepath: string;
+export interface UserPhoto{
+    filepath:string;
     webviewPath: string;
-  }
+}

@@ -19,33 +19,33 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
   }
 
-  async onRegister(){
-    this.presentLoadingWithOptions();
-    this.autSvc.onRegister(this.user).then((user: any)=>{
-      if(user!=undefined && user.code == undefined){
-        console.log("Successfully created user!");
-        this.router.navigate(['/']);
-      }
-        this.loadingController.dismiss();
-    }).catch(error=>{
-        this.loadingController.dismiss();
-      console.log(error);
-    });;
+ async onRegister(){
+  this.presentLoadingWithOptions();
+  this.autSvc.onRegister(this.user).then((user: any)=>{
+    if(user!=undefined && user.code == undefined){
+      console.log("Successfully created user!");
+      this.router.navigate(['/']);
+    }
+      this.loadingController.dismiss();
+  }).catch(error=>{
+      this.loadingController.dismiss();
+    console.log(error);
+  });;
 
-  }
+}
 
-  async presentLoadingWithOptions() {
-    const loading = await this.loadingController.create({
-      //spinner: null,
-      //duration: 800,
-      message: 'Iniciando sesion...',
-      translucent: true,
-      //cssClass: 'custom-class custom-loading',
-      backdropDismiss: true
-    });
-    await loading.present();
+async presentLoadingWithOptions() {
+  const loading = await this.loadingController.create({
+    //spinner: null,
+    //duration: 800,
+    message: 'Iniciando sesion...',
+    translucent: true,
+    //cssClass: 'custom-class custom-loading',
+    backdropDismiss: true
+  });
+  await loading.present();
 
-    const { role, data } = await loading.onDidDismiss();
-    console.log('Loading dismissed with role:', role);
+  const { role, data } = await loading.onDidDismiss();
+  console.log('Loading dismissed with role:', role);
   }
 }

@@ -8,25 +8,20 @@ const routes: Routes = [
     path: '',
     component: TabsPage,
     children:[
-    {
-      path:'alumnos',
-      loadChildren: () => import('../alumnos/alumnos.module').then(m=>m.AlumnosPageModule)
-    },
-    {
-      path:'galeria',
-      loadChildren: () => import('../galeria/galeria.module').then(m=>m.GaleriaPageModule)
-    },
-    {
-      path: '',
-      redirectTo: '/tabs/alumnos',
-      pathMatch: 'full'
-    },
+      {
+        path:'alumnos',
+        loadChildren:() => import('../alumnos/alumnos.module').then(m=>m.AlumnosPageModule)
+      },
+      {
+        path:'galeria',
+        loadChildren: () => import('../galeria/galeria.module').then(m=>m.GaleriaPageModule)
+      },
+      {
+        path: '',
+        redirectTo:'/tabs/alumnos',
+        pathMatch: 'full'
+      }
     ]
-  },
-  {
-    path: '',
-    redirectTo: '/tabs/alumnos',
-    pathMatch: 'full'
   }
 ];
 

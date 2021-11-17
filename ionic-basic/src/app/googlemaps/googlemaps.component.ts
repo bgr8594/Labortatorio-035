@@ -1,6 +1,6 @@
 import { Component, ElementRef, Inject, Input, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { GooglemapsService } from './googlemaps.service';
+import { GooglemapsService} from './googlemaps.service'
 import { DOCUMENT } from '@angular/common';
 import { Geolocation } from '@capacitor/geolocation';
 
@@ -18,17 +18,17 @@ export class GooglemapsComponent implements OnInit {
       lat:  -2.889,
       lng:  -78.899
     }
-  
+
     label: any = {
       titulo: 'Ubicación',
       subtitulo: 'Mi ubicación de envio'
     };
-  
+
     map: any;
     marker: any;
     infowindow: any;
     positionSet: any;
-    
+
     @ViewChild("map") divMap : ElementRef;
 
   constructor(
