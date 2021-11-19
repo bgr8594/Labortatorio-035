@@ -12,7 +12,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'alumnos', canActivate: [AuthGuard],
+    path: 'alumnos',  canActivate: [AuthGuard],
     children: [
       {
         path:'',
@@ -25,15 +25,15 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'recetas', canActivate: [AuthGuard],
+    path: 'recetas',  canActivate: [AuthGuard],
     loadChildren: () => import('./recetas/recetas.module').then( m => m.RecetasPageModule)
   },
   {
-    path: 'detalle-receta', canActivate: [AuthGuard],
+    path: 'detalle-receta',  canActivate: [AuthGuard],
     loadChildren: () => import('./detalle-receta/detalle-receta.module').then( m => m.DetalleRecetaPageModule)
   },
   {
-    path: 'tabs', canActivate: [AuthGuard],
+    path: 'tabs',  canActivate: [AuthGuard],
     loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
   },
   {
@@ -45,17 +45,24 @@ const routes: Routes = [
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
   {
-    path: 'admin', canActivate: [AuthGuard],
+    path: 'admin',  canActivate: [AuthGuard],
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
   },
   {
-    path: 'destinos', canActivate: [AuthGuard],
+    path: 'destinos',  canActivate: [AuthGuard],
     loadChildren: () => import('./destinos/destinos.module').then( m => m.DestinosPageModule)
   },
   {
     path: 'galeria', canActivate: [AuthGuard],
     loadChildren: () => import('./galeria/galeria.module').then( m => m.GaleriaPageModule)
+  },
+  {
+    path: 'segment-button',
+    loadChildren: () => import('./segment-button/segment-button.module').then( m => m.SegmentButtonPageModule)
   }
+
+
+
 
 
 
