@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../shared/user.class';
-import { AuthService } from '../service/auth.service';
+import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { ModalErrorComponent } from '../modal-error/modal-error.component';
