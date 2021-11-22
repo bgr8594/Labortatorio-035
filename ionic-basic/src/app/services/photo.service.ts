@@ -4,7 +4,7 @@ import { Capacitor } from '@capacitor/core';
 import { Filesystem, Directory } from '@capacitor/filesystem';
 import { Storage } from '@capacitor/storage';
 import { Platform } from '@ionic/angular';
-import { UserPhoto } from '../shared/user-photo.model';
+import { UserPhoto } from '../shared/user-photo.module';
 @Injectable({
   providedIn: 'root'
 })

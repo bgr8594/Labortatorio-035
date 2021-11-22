@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { LugaresService } from '../services/lugares.service';
@@ -11,7 +11,7 @@ import { GooglemapsComponent } from '../googlemaps/googlemaps.component';
   templateUrl: './destinos.page.html',
   styleUrls: ['./destinos.page.scss'],
 })
-export class DestinosPage implements OnInit, OnDestroy {
+export class DestinosPage implements OnInit {
   lugar: Lugar = new Lugar();
   destinos: any[] = [];
   ionicForm : FormGroup;
@@ -20,15 +20,16 @@ export class DestinosPage implements OnInit, OnDestroy {
   subscripcion: Subscription;
   latitud : number;
   longitud: number;
-  constructor(  private lugarService: LugaresService,
+  constructor(
+    private lugarService: LugaresService,
     private formBuilder: FormBuilder,
-    private modalController: ModalController) { }
+    private modalController: ModalController
+    ) { }
 
   ngOnInit() {
     this.getPosition();
     this.buildForm();
     this.getLugaresApi();
-
   }
 
   getLugaresApi(){
@@ -37,6 +38,7 @@ export class DestinosPage implements OnInit, OnDestroy {
     }, error=>{
       console.error();
     });
+  }
 
   altaLugar(){
     this.lugarService.altaLugar(this.lugar);
@@ -48,24 +50,15 @@ export class DestinosPage implements OnInit, OnDestroy {
       this.lugar.latitud = this.latitud;
       this.lugar.longitud = this.longitud; 
       if(!this.editando){
-/*  alta de lugar atraves de firestore 
-        this.lugarService.altaLugar(this.lugar).then((e:any)=>{
-          this.ionicForm.reset();
-        }).catch(e=>{
-          console.error(e);
-        });    
-*/  
-// alta de lugar desde api
         this.lugarService.altaLugarApi(this.lugar).subscribe((reponse: any)=>{
           this.ionicForm.reset();
+          this.getLugaresApi();
         }, error=>{
           console.log(error);
         });
         
       } else{
 
-
-// editar desde el api
         this.lugarService.editarLugarApi(this.lugar.id, this.lugar).subscribe((response: any)=>{
           this.editando= false;
           this.estado = "Alta destino";
@@ -104,16 +97,12 @@ export class DestinosPage implements OnInit, OnDestroy {
   }
 
   eliminarLugar(id: any) {
-    /* eliminar lugar a traves de firestore
-    this.lugarService.deleteLugar(id);
-    */
-
-    // eliminar lugar desde api
     this.lugarService.borrarLugarApi(id).subscribe((response: any)=>{
       if(response){
         this.estado = "Alta destino";
         this.editando = false;
         this.ionicForm.reset();
+        this.getLugaresApi();
       }
     }, error=>{
       console.error(error);
@@ -125,11 +114,6 @@ export class DestinosPage implements OnInit, OnDestroy {
     this.editando = false;
     this.ionicForm.reset();
     this.lugar = new Lugar();
-  }
-
-  ngOnDestroy(): void {
-    this.subscripcion.unsubscribe();
-    console.log("cancelar subscripcion")
   }
 
   getPosition(): Promise<any> {
@@ -149,7 +133,7 @@ export class DestinosPage implements OnInit, OnDestroy {
 
 	}
 
-  
+
   async addDirection(){
     let positionInput: any = {
       lat: -2.898116,
@@ -180,8 +164,5 @@ export class DestinosPage implements OnInit, OnDestroy {
       console.log('datos de ubiciacion actualizados, latitud: '+this.latitud+' \nlongitud:'+this.longitud);
     }
   }
-
-}
-
 
 }

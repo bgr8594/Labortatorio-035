@@ -20,7 +20,7 @@ import { GooglemapsModule } from './googlemaps/googlemaps.module';
   entryComponents: [],
   imports: [ComponentesModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule, AngularFirestoreModule GooglemapsModule ],
+    AngularFireAuthModule, AngularFirestoreModule, GooglemapsModule ],
   providers: [NavParams, HttpClientModule, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
