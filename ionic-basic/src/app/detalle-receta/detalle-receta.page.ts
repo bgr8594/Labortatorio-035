@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute,Router } from '@angular/router';
-import { Receta } from '../recetas/recetas.model';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Receta } from '../recetas/receta.model';
 import { RecetasService } from '../recetas/recetas.service';
 
 @Component({
@@ -9,7 +9,6 @@ import { RecetasService } from '../recetas/recetas.service';
   styleUrls: ['./detalle-receta.page.scss'],
 })
 export class DetalleRecetaPage implements OnInit {
-
   receta: Receta;
   idReceta : number;
   constructor(
